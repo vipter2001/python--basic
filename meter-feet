@@ -1,0 +1,52 @@
+""" from tkinter import *
+from tkinter import messagebox
+
+# User login
+root = Tk()
+root.title("Unit converter")
+root.geometry("500x500")
+root.configure(bg="red")
+l=Label(root,text="unit converter",font=("bold",23))
+l.place(x=150,y=20)
+def show_msg_box():
+    metre_value = float(metre.get())
+    
+metre=IntVar()
+l1 = Label(root, text="metre", font=("bold",13,"italic"))
+l1.place(x=10, y=100)  # Adding padding of 10 pixels
+e2=Entry(root,font=("times new roman",15),bd=3,fg="black",textvariable="metre",justify=CENTER)
+e2.place(x=100,y=100)
+l2 = Label(root,text="feet")
+info_bt=Button(root,text="feet",font=("bold",13),command=show_msg_box)
+info_bt.place(Pack=40)
+root.mainloop()
+ """
+from tkinter import *
+from tkinter import messagebox
+
+# User login
+root = Tk()
+root.title("Unit converter")
+root.geometry("500x500")
+root.configure(bg="red")
+l = Label(root, text="Unit Converter", font=("bold", 23))
+l.place(x=150, y=20)
+
+def show_msg_box():
+    metre_value = float(metre.get())
+    feet_value = metre_value * 3.28084
+    messagebox.showinfo("Conversion Result", f"{metre_value} meters is equal to {feet_value} feet")
+
+metre = DoubleVar()  # Use DoubleVar for floating-point values
+l1 = Label(root, text="Meter", font=("bold", 13, "italic"))
+l1.place(x=10, y=100)
+e2 = Entry(root, font=("times new roman", 15), bd=3, fg="black", textvariable=metre, justify=CENTER)
+e2.place(x=100, y=100)
+l2 = Label(root, text="Feet", font=("bold", 13, "italic"))
+l2.place(x=10, y=150)  # Add padding for consistent placement
+
+info_bt = Button(root, text="Convert", font=("bold", 13), command=show_msg_box)
+info_bt.place(x=100,y=150)
+# info_bt.pack(pady=40)  # Use pack to place the button and add padding
+
+root.mainloop()
